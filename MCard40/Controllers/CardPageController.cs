@@ -10,12 +10,10 @@ namespace MCard40.Web.Controllers
 {
     public class CardPageController : Controller
     {
-        private readonly MCard40DbContext _context;
         private readonly ICardPageService _service;
 
-        public CardPageController(MCard40DbContext context, ICardPageService service)
+        public CardPageController(ICardPageService service)
         {
-            _context = context;
             _service = service;
         }
 
@@ -30,15 +28,12 @@ namespace MCard40.Web.Controllers
             }
 
             return View(cardPages);
-
-            //var mCard40DbContext = _context.CardPages.Include(c => c.Doctor).Include(c => c.Patient);
-            //return View(await mCard40DbContext.ToListAsync());
         }
 
         // GET: CardPage/Details/5
         public async Task<IActionResult> Details(int? id)
         {
-            CardPage cardPage = _service.GetById(id);
+            CardPage cardPage = _service.GetCardPageDetails(id);
 
             if (cardPage == null)
             {

@@ -9,6 +9,7 @@ namespace MCard40.Infrastucture.Services.Interfaces
 {
     public interface IWeekService
     {
+        public IEnumerable<Week> GetAll(int id);
         void Add(Week week);
         Week GetById(int? id);
         Week Update(int id, Week week);

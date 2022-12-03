@@ -1,7 +1,7 @@
 ﻿using MCard40.Infrastucture.Services.Interfaces;
 using MCard40.Model.Entity;
 using MCard40.Model.Interfaces;
-
+using Microsoft.EntityFrameworkCore;
 
 namespace MCard40.Infrastucture.Services.Implementations
 {
@@ -13,7 +13,6 @@ namespace MCard40.Infrastucture.Services.Implementations
         {
             _repository = repository;
         }
-
         public void Add(Week week)
         {
             _repository.Create(week);
@@ -30,9 +29,23 @@ namespace MCard40.Infrastucture.Services.Implementations
             return week;
         }
 
-        public Week GetById(int? id)
+        public IEnumerable<Week> GetAll(int id)
         {
-            throw new NotImplementedException();
+            return _repository.GetWithInclude(x => x.Id == id,
+													   y => y.WorkDays);
+        }
+
+
+		public Week GetById(int? id)
+        {
+            if (id == null)
+            {
+                return null;
+            }
+
+            var week = _repository.ReadById(id.Value);
+
+            return week;
         }
 
         public Week GetWeekDetails(int? id)
@@ -46,9 +59,24 @@ namespace MCard40.Infrastucture.Services.Implementations
             return week;
         }
 
-        public Week Update(int id, Week patient)
+        public Week Update(int id, Week week)
         {
-            throw new NotImplementedException();
+            try
+            {
+                _repository.Update(week);
+            }
+            catch (DbUpdateConcurrencyException)
+            {
+                if (!_repository.IsExists(week.Id))
+                {
+                    return null;
+                }
+                else
+                {
+                    throw;
+                }
+            }
+            return week;
         }
     }
 }
