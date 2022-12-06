@@ -11,8 +11,8 @@ using MCard40.Data.Context;
 
 namespace MCard40.Web.Controllers
 {
-    public class WeekController : Controller
-    {
+	public class WeekController : Controller
+	{
         private readonly MCard40DbContext _context;
 
         public WeekController(MCard40DbContext context)
@@ -135,9 +135,9 @@ namespace MCard40.Web.Controllers
                 .Include(w => w.Doctor)
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (week == null)
-            {
+		{
                 return NotFound();
-            }
+		}
 
             return View(week);
         }
@@ -153,17 +153,17 @@ namespace MCard40.Web.Controllers
             }
             var week = await _context.Weeks.FindAsync(id);
             if (week != null)
-            {
+		{
                 _context.Weeks.Remove(week);
             }
             
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
-        }
-
+		}
+		
         private bool WeekExists(int id)
         {
           return _context.Weeks.Any(e => e.Id == id);
         }
-    }
+	}
 }

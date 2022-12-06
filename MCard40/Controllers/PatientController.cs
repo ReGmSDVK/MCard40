@@ -71,7 +71,6 @@ namespace MCard40.Web.Controllers
         // GET: Patient/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
-
             var patient = _service.GetById(id);
             if (patient == null)
             {
