@@ -2,7 +2,84 @@
     ViewData["Title"] = "Home Page";
 }
 
-<div class="text-center">
+@*<div class="text-center">
     <h1 class="display-4">Welcome</h1>
     <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
 </div>
+*@
+
+<link rel="stylesheet" href="~/css/main.css" asp-append-version="true" />
+
+<div class="slideshow-container">
+
+<div class="mySlides fade">
+  <div class="numbertext">1 / 3</div>
+        <img src="https://gamerwall.pro/uploads/posts/2022-03/1648192315_1-gamerwall-pro-p-krasivii-temno-zelenii-fon-krasivie-1.jpg" alt="Лес" style="width:100%">
+        <div class="inner-pic"><img src="~/image/slide2.png"></div>
+        <div class="inner-text">
+            <h3>ЭЛЕКТРОННАЯ МЕДИЦИНСКАЯ<br> КАРТА ВСЕГДА ПОД РУКОЙ</h3>
+            <ul>
+                <li style="list-style-type: disc;">Рекомендация врача и рецепты</li>
+                <li style="list-style-type: disc;">Дневники надзора за здоровьем</li>
+                <li style="list-style-type: disc;">Медицинские данные всей семьи</li>
+                <li style="list-style-type: disc;">Никогда не потеряете</li>
+            </ul>
+        </div>
+  <div class="text">Подпись текста</div>
+</div>
+
+<div class="mySlides fade">
+  <div class="numbertext">2 / 3</div>
+        <img src="https://gamerwall.pro/uploads/posts/2022-03/1648192315_1-gamerwall-pro-p-krasivii-temno-zelenii-fon-krasivie-1.jpg" alt="Природа" style="width:100%">
+        <div class="inner-pic"><img src="~/image/slide3.png"></div>
+         <div class="inner-text">
+            <h3>ВАШЕ ЛИЧНОЕ<br> МЕДИЦИНСКОЕ ПРОСТРАНСТВО!</h3>
+            <ul>
+                <li style="position:absolute; top:70px;right:100px; font-size:19px;"><em>Web-приложение</em></li>
+                <li style="position:absolute;top:140px;right:20px;">в будущем Вы сможете скачать<br> через PlayMarket</li>
+            </ul>
+        </div>
+        <div class="text">Подпись два</div>
+</div>
+
+
+<div class="mySlides fade">
+  <div class="numbertext">3 / 3</div>
+        <img src="https://gamerwall.pro/uploads/posts/2022-03/1648192315_1-gamerwall-pro-p-krasivii-temno-zelenii-fon-krasivie-1.jpg" alt="Горы" style="width:100%">
+        <div class="inner-pic"><img src="~/image/slide1.png"></div>
+  <div class="text">Подпись три</div>
+</div>
+
+<a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+<a class="next" onclick="plusSlides(1)">&#10095;</a>
+
+</div>
+<br>
+<div style="text-align:center">
+  <span class="dot" onclick="currentSlide(1)"></span> 
+  <span class="dot" onclick="currentSlide(2)"></span> 
+  <span class="dot" onclick="currentSlide(3)"></span> 
+</div>
+
+
+<script>
+    let slideIndex = 0;
+    showSlides();
+
+    function showSlides() {
+        let i;
+        let slides = document.getElementsByClassName("mySlides");
+        let dots = document.getElementsByClassName("dot");
+        for (i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";
+        }
+        slideIndex++;
+        if (slideIndex > slides.length) { slideIndex = 1 }
+        for (i = 0; i < dots.length; i++) {
+            dots[i].className = dots[i].className.replace(" active", "");
+        }
+        slides[slideIndex - 1].style.display = "block";
+        dots[slideIndex - 1].className += " active";
+        setTimeout(showSlides, 6000); // Change image every 2 seconds
+    }
+</script>
