@@ -31,22 +31,23 @@
                 <h3>
                     <a class="med" asp-area="" asp-controller="Home" asp-action="Index">
                         @*<img src="~/image/MCard40.png" style="position:absolute; top:-40px; left:2px;width:250px; height:180px">*@
-                        MCard40</a>
+                        MCard40
+                    </a>
                 </h3>
             </div>
 
             <ul class="list-unstyled components">
                 <li class="nav-item">
-                    <a  asp-area="" asp-controller="Home" asp-action="Index">Главная</a>
+                    <a asp-area="" asp-controller="Home" asp-action="Index">Главная</a>
                 </li>
                 <li class="nav-item">
-                    <a  asp-area="" asp-controller="Home" asp-action="Privacy">Приватность</a>
+                    <a asp-area="" asp-controller="Home" asp-action="Privacy">Приватность</a>
                 </li>
                 <li class="nav-item">
-                    <a  asp-area="" asp-controller="TypesDoctor" asp-action="Index">Типы врачей</a>
+                    <a asp-area="" asp-controller="TypesDoctor" asp-action="Index">Типы врачей</a>
                 </li>
                 <li class="nav-item">
-                    <a  asp-area="" asp-controller="TypesDoctor" asp-action="Price">Прейскурант</a>
+                    <a asp-area="" asp-controller="TypesDoctor" asp-action="Price">Прейскурант</a>
                 </li>
                 <li class="nav-item">
                     <a  asp-area="" asp-controller="UserPage" asp-action="Index">Анкета</a>
@@ -54,13 +55,13 @@
                 @if (User.IsInRole(WC.Admin) || User.IsInRole(WC.Patient) || User.IsInRole(WC.Doctor))
                 {
                     <li class="nav-item">
-                        <a  asp-area="" asp-controller="Doctor" asp-action="Index">Доктор</a>
+                        <a asp-area="" asp-controller="Doctor" asp-action="Index">Доктор</a>
                     </li>
                 }
                 @if (User.IsInRole(WC.Admin) || User.IsInRole(WC.Doctor))
                 {
                     <li class="nav-item">
-                        <a  asp-area="" asp-controller="Patient" asp-action="Index">Пациент</a>
+                        <a asp-area="" asp-controller="Patient" asp-action="Index">Пациент</a>
                     </li>
                 }
                 @if (User.IsInRole(WC.Admin))
@@ -80,7 +81,7 @@
                     @*                    <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">MedicalCard</a>  *@                    
                     <button type="button" id="sidebarCollapse" class="btn btn-info" style=" background-color: #6DE66D !important; border-color:#c1ffc1">
                         <i class="fas fa-align-left"></i>
-                       @* <span>Toggle Sidebar</span>*@
+                        @* <span>Toggle Sidebar</span>*@
                     </button>
                     @*<button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                         <i class="fas fa-align-justify"></i>
