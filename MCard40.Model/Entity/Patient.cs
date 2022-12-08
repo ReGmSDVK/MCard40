@@ -22,6 +22,7 @@ public class Patient : IEntity<int>
     /// День рождения
     [Required(ErrorMessage = "Обязательно укажите день рождения")]
     [Display(Name = "Дата рождения")]
+    [DataType(DataType.Date)]
     public DateTime Age { get; set; }
 
     /// Пол 
