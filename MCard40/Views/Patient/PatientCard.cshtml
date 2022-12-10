@@ -3,8 +3,42 @@
 @{
     ViewData["Title"] = "Index";
 }
+<style>
+    .table {
+        border-collapse: collapse;
+        margin: 25px 0;
+        font-size: 0.9em;
+        font-family: sans-serif;
+        min-width: 400px;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+    }
 
-<h1>Index</h1>
+        .table thead tr {
+            background-color: #009879;
+            color: #ffffff;
+            text-align: left;
+        }
+
+        .table th,
+        .table td {
+            padding: 12px 15px;
+        }
+
+        .table tbody tr {
+            border-bottom: 1px solid #dddddd;
+        }
+
+            .table tbody tr:nth-of-type(even) {
+                background-color: #f3f3f3;
+            }
+
+            .table tbody tr:last-of-type {
+                border-bottom: 2px solid #009879;
+            }
+
+</style>
+
+<h1>Карты пациента</h1>
 
 <p>
     <a asp-action="CardCreate" asp-route-id="@ViewBag.PatientId">Create New</a>
@@ -38,8 +72,8 @@
             </td>
             <td>
                 <a asp-action="CardEdit" asp-route-id="@item.Id, Patient.Id">Edit</a> 
-               @* <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>*@
+                    <a asp-action="CardDetails" asp-route-id="@item.Id">CardDetails</a> |
+             @*  <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>*@
             </td>
         </tr>
 }
