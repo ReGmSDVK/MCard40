@@ -12,5 +12,9 @@ namespace MCard40.Web.Controllers
 		{
 			return View();
 		}
+        public IActionResult Interest()
+        {
+            return View();
+        }
     }
 }

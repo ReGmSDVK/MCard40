@@ -1,7 +1,7 @@
 ﻿.koguvcavis-varazdel {
-    padding: 38px 0;
-    background: #adadad;
-    color: #2f2f2f;
+    padding: 10px 0;
+    background: #f9f9f9;
+    color: #248d23;
     text-align: center;
 }
 
@@ -13,16 +13,18 @@
 }
 
 .sectionesag {
-    width: 195px;
-    height: 3px;
+    width: 305px;
+    height: 4px;
     background: #498a2d;
     margin: 23px auto;
+    margin-top: -4px;
 }
 
 .sagestim-lonials {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    margin-top: -10px;
 }
 
 .vemotau-vokusipol {
@@ -33,20 +35,20 @@
 }
 
 .testimonial {
-    background: #f9f4f4;
+    background: #eaffe9;
     padding: 28px;
 }
 
     .testimonial img {
-        width: 100px;
-        height: 100px;
+        width: 150px;
+        height: 150px;
         border-radius: 50%;
     }
 
 .gecedanam {
     font-size: 20px;
     text-transform: uppercase;
-    margin: 20px 0;
+    margin: 10px 0;
 }
 
 .apogered-gselected {
