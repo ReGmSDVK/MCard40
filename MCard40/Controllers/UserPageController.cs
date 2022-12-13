@@ -21,7 +21,8 @@ public class UserPageController : Controller
     private readonly IDoctorService _serviceDoc;
     private readonly IPatientService _servicePat;
     private readonly IHttpContextAccessor _httpContextAccessor;
-    public UserPageController(UserManager<MCardUser> userManager, MCard40DbContext dbContext, IHttpContextAccessor httpContextAccessor, MCard40WebContext identityDbContext, IDoctorService serviceDoc, IPatientService servicePat)
+    private readonly ICardPageService _serviceCard;
+    public UserPageController(UserManager<MCardUser> userManager, MCard40DbContext dbContext, IHttpContextAccessor httpContextAccessor, MCard40WebContext identityDbContext, IDoctorService serviceDoc, IPatientService servicePat, ICardPageService serviceCard)
     {
         _userManager = userManager;
         _dbContext = dbContext;
@@ -29,6 +30,7 @@ public class UserPageController : Controller
         _identityDbContext = identityDbContext;
         _serviceDoc = serviceDoc;
         _servicePat = servicePat;
+        _serviceCard = serviceCard;
     }
 
     public string? UserId => _httpContextAccessor.HttpContext?.User?.FindFirstValue(ClaimTypes.NameIdentifier);
@@ -162,6 +164,28 @@ public class UserPageController : Controller
             return NotFound();
         }
         return RedirectToAction(nameof(Index));
+    }
+
+    public async Task<IActionResult> PatientCard(int id)
+    {
+        List<CardPage> cardPages = _serviceCard.GetAll(id);
+        if (cardPages == null)
+        {
+            return NotFound();
+        }
+        ViewBag.PatientId = id;
+        return View(cardPages);
+    }
+
+    public async Task<IActionResult> CardDetails(int? id)
+    {
+        var cardPage = _serviceCard.GetCardPageDetails(id);
+        if (cardPage == null)
+        {
+            return NotFound();
+        }
+
+        return View(cardPage);
     }
 
 }

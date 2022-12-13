@@ -59,24 +59,22 @@
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Disease)
-            </td>
-            <th>
-                @Html.DisplayFor(modelItem => item.DateСreation)
-            </th>
-            <td>
-                @Html.DisplayFor(modelItem => item.Doctor.FullName)
-            </td>
-            <td>
-
-                <a asp-action="CardEdit" asp-route-id="@item.Id">Редактировать</a> 
-                <a asp-action="CardDetails" asp-route-id="@item.Id">Детали</a> 
-               
-            </td>
-        </tr>
-}
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Disease)
+                </td>
+                <th>
+                    @Html.DisplayFor(modelItem => item.DateСreation)
+                </th>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Doctor.FullName)
+                </td>
+                <td>
+                    <a asp-action="CardDetails" asp-route-id="@item.Id">Детали</a>
+                </td>
+            </tr>
+        }
     </tbody>
 </table>
